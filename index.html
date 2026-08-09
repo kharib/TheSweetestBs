@@ -12,6 +12,21 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
+		<!-- Google Fonts for Elegant Titles -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
+		<style>
+			/* Elegant font class for titles and brand logo */
+			.brand-font {
+				font-family: 'Great Vibes', cursive !important;
+				font-weight: 600 !important;
+				letter-spacing: 1px;
+			}
+		</style>
+
 		<!-- Fancybox 5 CSS -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
 	
@@ -40,6 +55,7 @@
 					<li style="margin: 0;"><a href="#bridal-party" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Bridal Party</a></li>
 					<li style="margin: 0;"><a href="#registry" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Registry</a></li>
 					<li style="margin: 0;"><a href="#photos" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Photos</a></li>
+					<li style="margin: 0;"><a href="#share-photos" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Share Photos</a></li>
 					<li style="margin: 0;"><a href="#faq" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">FAQ</a></li>
 					<li style="margin: 0;"><a href="#rsvp" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">RSVP</a></li>
 				</ul>
@@ -52,34 +68,35 @@
 				<!-- Main Banner / Hero Section -->
 					<section class="banner style1 orient-left content-align-left image-position-right fullscreen onload-image-fade-in onload-content-fade-right">
 						<div class="content">
-							<h1>Khari &amp; Kimberlee</h1>
+							<h1 class="brand-font" style="font-size: 3.5rem; line-height: 1.1;">Khari &amp; Kimberlee</h1>
 							<p class="major">We are getting married! Join us as we celebrate our love and commitment.</p>
-							<p><strong>#BuildWithTheBryans &nbsp;|&nbsp; #TheSweetestBs</strong>[cite: 1, 4]</p>
+							<p><strong>#BuildWithTheBryans &nbsp;|&nbsp; #TheSweetestBs</strong></p>
 
-  							<!-- Live Countdown Timer -->
-        						<div id="wedding-countdown" style="display: flex; gap: 1rem; margin: 1.5rem 0; text-align: center;">
-            							<div>
-                							<span id="days" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
-                							<span style="font-size: 0.8rem; text-transform: uppercase;">Days</span>
-            							</div>
-            							<div>
-                							<span id="hours" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
-                							<span style="font-size: 0.8rem; text-transform: uppercase;">Hours</span>
-            							</div>
-            							<div>
-                							<span id="minutes" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
-                							<span style="font-size: 0.8rem; text-transform: uppercase;">Minutes</span>
-            							</div>
-            							<div>
-                							<span id="seconds" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
-                							<span style="font-size: 0.8rem; text-transform: uppercase;">Seconds</span>
-            							</div>
-        						</div>
+  						<!-- Centered Live Countdown Timer -->
+							<div id="wedding-countdown" style="display: flex; justify-content: center; align-items: center; gap: 1.5rem; margin: 2rem auto; text-align: center; max-width: 100%;">
+   		 						<div>
+   						    		<span id="days" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
+    							    <span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Days</span>
+    							</div>
+    							<div>
+    	    						<span id="hours" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
+    	    						<span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Hours</span>
+    							</div>
+    							<div>
+    	    						<span id="minutes" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
+    	    						<span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Minutes</span>
+   		 						</div>
+    							<div>
+    	    						<span id="seconds" style="font-size: 2rem; font-weight: bold; display: block;">00</span>
+     		   						<span style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px;">Seconds</span>
+    							</div>
+							</div>
 
-							<ul class="actions stacked">
-								<li><a href="#wedding-details" class="button big wide smooth-scroll-middle">Event Details</a></li>
-							</ul>
-						</div>
+								<ul class="actions stacked">
+									<li><a href="#wedding-details" class="button big wide smooth-scroll-middle">Event Details</a></li>
+								</ul>
+							</div>
+
 						<div class="image">
 							<img src="images/banner.jpg" alt="Kimberlee and Khari" />
 						</div>
@@ -89,7 +106,7 @@
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="wedding-details">
 						<div class="content">
 							<h2>Wedding Details</h2>
-							<p>We look forward to celebrating this special day with our close family and friends[cite: 1, 4]!</p>
+							<p>We look forward to celebrating this special day with our close family and friends.</p>
 							<ul style="margin-bottom: 1.5rem;">
 								<li><strong>Date:</strong> Saturday, August 29, 2026</li>
 								<li><strong>Time:</strong> 2:00 PM</li>
@@ -318,7 +335,7 @@
 					<section class="wrapper style1 align-center" id="photos">
 						<div class="inner">
 							<h2>Photo Album</h2>
-							<p>A look at our journey together[cite: 1, 4]. Click any photo to expand[cite: 1, 4]!</p>
+							<p>A look at our journey together. Click any photo to expand!</p>
 						</div>
 
 						<!-- Gallery -->
@@ -375,6 +392,35 @@
 
 					</section>
 
+                <!-- Post-Event Photo Sharing -->
+					<section class="spotlight style1 orient-left content-align-center image-position-center onscroll-image-fade-in" id="share-photos" style="background: rgba(0,0,0,0.02);">
+						<div class="content" style="padding: 3rem 2rem;">
+							<h2>Captured a Special Moment?</h2>
+							<p>We’d love to see the wedding through your eyes! Upload your photos and videos from the day directly to our shared album.</p>
+							
+							<div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 1.5rem;">
+								<!-- QR Code Display (Replace qr-placeholder.png with your generated QR code image) -->
+								<div style="background: #ffffff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+									<img src="images/scan.png" alt="Scan to Upload Photos" style="width: 160px; height: 200px; display: block; margin: 0 auto 0.5rem auto;" />
+									<small style="color: #666; font-weight: 600;">Scan with Phone Camera</small>
+								</div>
+
+								<ul class="actions stacked" style="margin: 0;">
+									<li>
+										<!-- Replace YOUR_UPLOAD_LINK_HERE with your Google Drive / Dropbox / WebUpload link -->
+										<a href="https://drive.google.com/drive/folders/1KWlIioRJPDcaw1pzpbmC8TVSk6Qja2ik" target="_blank" rel="noopener noreferrer" class="button primary icon solid fa-upload">
+											Upload Your Photos
+										</a>
+									</li>
+								</ul>
+								<p style="font-size: 0.85rem; color: #777; margin: 0;">Tag your social posts with <strong>#BuildWithTheBryans</strong> &amp; <strong>#TheSweetestBs</strong></p>
+							</div>
+						</div>
+						<div class="image">
+							<img src="images/spotlight02.jpg" alt="Share Your Memories" />
+						</div>
+					</section>
+					
 				<!-- FAQ Section -->
 					<section class="wrapper style1 align-center" id="faq">
 						<div class="inner medium">
@@ -437,38 +483,25 @@
 						</div>
 					</section>	
 				
-				<!-- RSVP Section -->
+<!-- Combined RSVP & Menu Selection Section -->
 					<section class="wrapper style1 align-center" id="rsvp">
 						<div class="inner medium">
-							<h2>RSVP &amp; Contact Us</h2>
-							<p>Please let us know if you will be joining us on our special day[cite: 1, 4].</p>
-							<form method="post" action="#">
-								<div class="fields">
-									<div class="field half">
-										<label for="name">Full Name</label>
-										<input type="text" name="name" id="name" value="" required />
-									</div>
-									<div class="field half">
-										<label for="email">Email Address</label>
-										<input type="email" name="email" id="email" value="" required />
-									</div>
-									<div class="field">
-										<label for="attending">Will you be attending?</label>
-										<select name="attending" id="attending">
-											<option value="yes">Joyfully Accepts</option>
-											<option value="no">Regretfully Declines</option>
-										</select>
-									</div>
-									<div class="field">
-										<label for="message">Message to the Couple</label>
-										<textarea name="message" id="message" rows="4"></textarea>
-									</div>
-								</div>
-								<ul class="actions special">
-									<li><input type="submit" name="submit" id="submit" value="Send RSVP" /></li>
-								</ul>
-							</form>
+							<h2>RSVP &amp; Menu Selection</h2>
+							<p>Please let us know if you will be joining us on our special day and select your dining preferences below.</p>
 
+							<div style="margin-top: 2rem; background: #ffffff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+								<!-- Replace the src URL below with your Google Form embed link -->
+								<iframe 
+									src="https://forms.gle/SEQ96VTGJsj7PmBR6" 
+									width="100%" 
+									height="950" 
+									frameborder="0" 
+									marginheight="0" 
+									marginwidth="0" 
+									style="border: none; max-width: 100%;">
+									Loading RSVP &amp; Menu Options…
+								</iframe>
+							</div>
 						</div>
 					</section>
 
