@@ -14,8 +14,37 @@
 
 		<!-- Fancybox 5 CSS -->
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
+	
+		<style>
+				@media screen and (max-width: 736px) {
+					#nav-bar .nav-links {
+						gap: 0.75rem !important;
+					}
+					#nav-bar .nav-links a {
+						font-size: 0.75rem !important;
+					}
+				}
+			</style>
+		</head>
+	
 	</head>
 	<body class="is-preload">
+
+		<!-- Sticky Navigation Bar -->
+		<nav id="nav-bar" style="position: sticky; top: 0; z-index: 9999; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(0,0,0,0.08); transition: all 0.3s ease;">
+			<div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem;">
+				<a href="#" style="font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem; letter-spacing: 1px;">Khari &amp; Kimberlee</a>
+				
+				<ul style="list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;" class="nav-links">
+					<li style="margin: 0;"><a href="#wedding-details" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Details</a></li>
+					<li style="margin: 0;"><a href="#bridal-party" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Bridal Party</a></li>
+					<li style="margin: 0;"><a href="#registry" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Registry</a></li>
+					<li style="margin: 0;"><a href="#photos" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Photos</a></li>
+					<li style="margin: 0;"><a href="#faq" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">FAQ</a></li>
+					<li style="margin: 0;"><a href="#rsvp" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">RSVP</a></li>
+				</ul>
+			</div>
+		</nav>
 
 		<!-- Wrapper -->
 			<div id="wrapper" class="divided">
@@ -61,15 +90,34 @@
 						<div class="content">
 							<h2>Wedding Details</h2>
 							<p>We look forward to celebrating this special day with our close family and friends[cite: 1, 4]!</p>
-							<ul>
-								<li><strong>Date:</strong> August 29, 2026[cite: 1, 4]</li>
-								<li><strong>Time:</strong> 2:00 PM[cite: 1, 4]</li>
-								<li><strong>Venue:</strong> Daphodils in the Garden[cite: 1, 4]</li>
-								<li><strong>Address:</strong> 6 Summit Close, Morant Bay[cite: 1, 4]</li>
-								<li><strong>Marriage Officer:</strong> Reverend Duckett Duncan[cite: 1, 4]</li>
-								<li><strong>Guest Count:</strong> Intimate gathering (35 guests)[cite: 1, 4]</li>
+							<ul style="margin-bottom: 1.5rem;">
+								<li><strong>Date:</strong> Saturday, August 29, 2026</li>
+								<li><strong>Time:</strong> 2:00 PM</li>
+								<li><strong>Venue:</strong> Daphodils in the Garden</li>
+								<li><strong>Address:</strong> 6 Summit Close, Morant Bay</li>
+								<li><strong>Marriage Officer:</strong> Reverend Duckett Duncan</li>
+								<li><strong>Guest Count:</strong> Intimate gathering (35 guests)</li>
 							</ul>
+
+							<!-- Interactive Map Container -->
+							<div style="margin-bottom: 1.5rem; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+								<iframe 
+									src="https://maps.google.com/maps?q=6%20Summit%20Close,%20Morant%20Bay,%20Jamaica&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+									width="100%" 
+									height="220" 
+									style="border:0; display: block;" 
+									allowfullscreen="" 
+									loading="lazy" 
+									referrerpolicy="no-referrer-when-downgrade">
+								</iframe>
+							</div>
+
 							<ul class="actions stacked">
+								<li>
+									<a href="https://www.google.com/maps/search/?api=1&query=6+Summit+Close,+Morant+Bay,+Jamaica" target="_blank" rel="noopener noreferrer" class="button primary icon solid fa-map-marker-alt">
+										Get Directions
+									</a>
+								</li>
 								<li><a href="#rsvp" class="button smooth-scroll-middle">RSVP Now</a></li>
 							</ul>
 						</div>
@@ -213,37 +261,57 @@
 
 				<!-- Bridal Registry -->
 					<section class="spotlight style1 orient-right content-align-left image-position-center onscroll-image-fade-in" id="registry" style="min-height: 700px;">
-    						<div class="content" style="padding: 2.5rem;">
-						        <h2>Ways to Give</h2>
-						        <p>Should you wish to honor us with a monetary contribution, details for our banking registries are provided below:</p>
-        
-						        <!-- Banking Accordion / List -->
- 							<div style="margin-top: 1.5rem;">
-            							<h3>Jamaica — VM Express</h3>
-            							<p style="margin-bottom: 1rem;">
-                							<strong>Account Number:</strong> 1694276306<br />
-                							<strong>Branch:</strong> 4 - Liguanea Branch<br />
-                							<strong>Account Holders:</strong> Mr. Khari A. Bryan &amp; Miss Kimberlee J. Lawrence<br />
-                							<small><em>Bridal Registry Account opened 03/08/2026.</em></small>
-            							</p>
+						<div class="content" style="padding: 2.5rem;">
+							<h2>Ways to Give</h2>
+							<p>Should you wish to honor us with a monetary contribution, details for our banking registries are provided below:</p>
+							
+							<!-- Banking Accordion / List with Copy Buttons -->
+							<div style="margin-top: 1.5rem;">
+								
+								<!-- Jamaica Registry -->
+								<div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.02); padding: 1.25rem; border-radius: 8px;">
+									<h3 style="margin-bottom: 0.5rem;">Jamaica — VM Express</h3>
+									<p style="margin-bottom: 0.5rem;">
+										<strong>Branch:</strong> 4 - Liguanea Branch<br />
+										<strong>Account Holders:</strong> Mr. Khari A. Bryan &amp; Miss Kimberlee J. Lawrence
+									</p>
+									<p style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+										<span><strong>Account Number:</strong> <code id="jm-acc">1694276306</code></span>
+										<button type="button" class="button small copy-btn" onclick="copyText('1694276306', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
+									</p>
+									<small><em>Bridal Registry Account opened 03/08/2026.</em></small>
+								</div>
 
-            							<h3>Canada — TD Canada Trust</h3>
-            							<p style="margin-bottom: 1rem;">
-                							<strong>Institution No:</strong> 004 &nbsp;|&nbsp; <strong>Transit No:</strong> 11852<br />
-                							<strong>Account Number:</strong> 6182974<br />
-                							<strong>Designation No:</strong> 1185
-            							</p>
+								<!-- Canada Registry -->
+								<div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.02); padding: 1.25rem; border-radius: 8px;">
+									<h3 style="margin-bottom: 0.5rem;">Canada — TD Canada Trust</h3>
+									<p style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+										<span><strong>Account Number:</strong> <code>6182974</code></span>
+										<button type="button" class="button small copy-btn" onclick="copyText('6182974', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
+									</p>
+									<p style="margin-bottom: 0;">
+										<strong>Institution No:</strong> 004 &nbsp;|&nbsp; <strong>Transit No:</strong> 11852 &nbsp;|&nbsp; <strong>Designation No:</strong> 1185
+									</p>
+								</div>
 
-            							<h3>United States — Bank of America</h3>
-            							<p style="margin-bottom: 0;">
-                							<strong>Account Number:</strong> 483083291440<br />
-                							<strong>Routing Number:</strong> 021000322
-            							</p>
-        						</div>
-    						</div>
-    						<div class="image" style="min-height: 700px;">
-        						<img src="images/spotlight03.jpg" alt="A Message to Our Beloved Family, Friends & Wellwishers" style="object-fit: contain; background-color: #ffffff; padding: 1rem;" />
-    						</div>
+								<!-- United States Registry -->
+								<div style="margin-bottom: 0; background: rgba(0,0,0,0.02); padding: 1.25rem; border-radius: 8px;">
+									<h3 style="margin-bottom: 0.5rem;">United States — Bank of America</h3>
+									<p style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+										<span><strong>Account Number:</strong> <code>483083291440</code></span>
+										<button type="button" class="button small copy-btn" onclick="copyText('483083291440', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
+									</p>
+									<p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+										<span><strong>Routing Number:</strong> <code>021000322</code></span>
+										<button type="button" class="button small copy-btn" onclick="copyText('021000322', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
+									</p>
+								</div>
+
+							</div>
+						</div>
+						<div class="image" style="min-height: 700px;">
+							<img src="images/spotlight03.jpg" alt="A Message to Our Beloved Family, Friends & Wellwishers" style="object-fit: contain; background-color: #ffffff; padding: 1rem;" />
+						</div>
 					</section>
 
 				<!-- Photo Album Gallery (Fancybox 5) -->
@@ -307,6 +375,68 @@
 
 					</section>
 
+				<!-- FAQ Section -->
+					<section class="wrapper style1 align-center" id="faq">
+						<div class="inner medium">
+							<h2>Frequently Asked Questions</h2>
+							<p>Everything you need to know about celebrating with us on our big day.</p>
+							
+							<div class="faq-accordion" style="text-align: left; margin-top: 2rem;">
+								
+								<details style="background: rgba(0,0,0,0.03); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+									<summary style="font-weight: bold; font-size: 1.1rem; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+										<span>What is the dress code?</span>
+										<span style="font-size: 1.2rem; margin-left: 0.5rem;">+</span>
+									</summary>
+									<p style="margin-top: 1rem; margin-bottom: 0;">
+										The dress code is <strong>Garden Formal / Elegant Tropical</strong>. Since the venue is outdoors in the garden, light and comfortable formal wear is encouraged. We recommend opting for block heels or flats for ease of walking on grass.
+									</p>
+								</details>
+
+								<details style="background: rgba(0,0,0,0.03); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+									<summary style="font-weight: bold; font-size: 1.1rem; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+										<span>Can I bring a plus-one?</span>
+										<span style="font-size: 1.2rem; margin-left: 0.5rem;">+</span>
+									</summary>
+									<p style="margin-top: 1rem; margin-bottom: 0;">
+										Due to venue capacity and our desire for an intimate gathering of 35 guests, we can only accommodate those formally named on your invitation.
+									</p>
+								</details>
+
+								<details style="background: rgba(0,0,0,0.03); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+									<summary style="font-weight: bold; font-size: 1.1rem; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+										<span>Is parking available at Daphodils in the Garden?</span>
+										<span style="font-size: 1.2rem; margin-left: 0.5rem;">+</span>
+									</summary>
+									<p style="margin-top: 1rem; margin-bottom: 0;">
+										Yes, designated on-site parking is available at 6 Summit Close, Morant Bay. Attendants will be present to help guide you upon arrival.
+									</p>
+								</details>
+
+								<details style="background: rgba(0,0,0,0.03); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+									<summary style="font-weight: bold; font-size: 1.1rem; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+										<span>What time should I arrive?</span>
+										<span style="font-size: 1.2rem; margin-left: 0.5rem;">+</span>
+									</summary>
+									<p style="margin-top: 1rem; margin-bottom: 0;">
+										The ceremony will begin promptly at 2:00 PM. We kindly ask guests to arrive 20–30 minutes prior to take their seats.
+									</p>
+								</details>
+
+								<details style="background: rgba(0,0,0,0.03); border-radius: 8px; padding: 1rem 1.5rem; margin-bottom: 1rem; cursor: pointer;">
+									<summary style="font-weight: bold; font-size: 1.1rem; outline: none; list-style: none; display: flex; justify-content: space-between; align-items: center;">
+										<span>Are children allowed?</span>
+										<span style="font-size: 1.2rem; margin-left: 0.5rem;">+</span>
+									</summary>
+									<p style="margin-top: 1rem; margin-bottom: 0;">
+										While we love your little ones, our celebration is an adult-only event except for designated members of our immediate family.
+									</p>
+								</details>
+
+							</div>
+						</div>
+					</section>	
+				
 				<!-- RSVP Section -->
 					<section class="wrapper style1 align-center" id="rsvp">
 						<div class="inner medium">
@@ -421,7 +551,27 @@
        		updateCountdown();
         	const timerInterval = setInterval(updateCountdown, 1000);
     		});
-	</script>
+		</script>
+
+	<!-- Copy to Clipboard Script -->
+		<script>
+			function copyText(text, button) {
+				navigator.clipboard.writeText(text).then(function() {
+					const originalText = button.innerText;
+					button.innerText = "Copied!";
+					button.style.backgroundColor = "#2e7d32"; // Green feedback
+					button.style.color = "#ffffff";
+					
+					setTimeout(function() {
+						button.innerText = originalText;
+						button.style.backgroundColor = "";
+						button.style.color = "";
+					}, 2000);
+				}).catch(function(err) {
+					console.error('Could not copy text: ', err);
+				});
+			}
+		</script>
 
 	</body>
 </html>
