@@ -44,11 +44,31 @@
 	
 	</head>
 	<body class="is-preload">
+<body class="is-preload">
+
+		<!-- Guest Access Gatekeeper Overlay -->
+		<div id="login-overlay" style="position: fixed; top: 0; left: 0; width: 100vw; height: 100vh; background: #ffffff; z-index: 99999; display: flex; justify-content: center; align-items: center; padding: 1.5rem; text-align: center;">
+			<div style="max-width: 450px; width: 100%; background: #ffffff; padding: 2.5rem 2rem; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.12); border: 1px solid rgba(0,0,0,0.06);">
+				<h1 class="brand-font" style="font-size: 3.2rem; margin-bottom: 0.5rem; line-height: 1.2; text-transform: none;">Khari &amp; Kimberlee</h1>
+				<p style="font-size: 0.95rem; margin-bottom: 1.5rem; color: #666;">Welcome! Please enter your name or email to access our wedding site &amp; RSVP.</p>
+				
+				<form id="login-form" onsubmit="handleGuestLogin(event)">
+					<div style="margin-bottom: 1rem;">
+						<input type="text" id="guest-identifier" placeholder="e.g. Sarah Bryan or sarah@example.com" required style="width: 100%; text-align: center; height: 2.75rem;" />
+					</div>
+					<button type="submit" class="button primary wide" style="width: 100%;">Access Website</button>
+				</form>
+				
+				<div id="login-error" style="display: none; margin-top: 1rem; color: #d32f2f; font-size: 0.85rem; background: #ffebee; padding: 0.5rem 0.75rem; border-radius: 6px;">
+					We couldn't find your name on the guest list. Please check your spelling or contact Kimberlee &amp; Khari!
+				</div>
+			</div>
+		</div>
 
 		<!-- Sticky Navigation Bar -->
 		<nav id="nav-bar" style="position: sticky; top: 0; z-index: 9999; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(0,0,0,0.08); transition: all 0.3s ease;">
 			<div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0.75rem 1.5rem;">
-				<a href="#" style="font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem; letter-spacing: 1px;">Khari &amp; Kimberlee</a>
+				<a href="#" style="font-weight: 700; text-decoration: none; border: none; font-size: 1.1rem; letter-spacing: 1px;">GOD's Intimate Wedding</a>
 				
 				<ul style="list-style: none; display: flex; gap: 1.5rem; margin: 0; padding: 0;" class="nav-links">
 					<li style="margin: 0;"><a href="#wedding-details" class="smooth-scroll-middle" style="text-decoration: none; border: none; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Details</a></li>
@@ -400,10 +420,10 @@
 							
 							<div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem; margin-top: 1.5rem;">
 								<!-- QR Code Display (Replace qr-placeholder.png with your generated QR code image) -->
-								<div style="background: #ffffff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
+								<!--<div style="background: #ffffff; padding: 1rem; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); text-align: center;">
 									<img src="images/scan.png" alt="Scan to Upload Photos" style="width: 160px; height: 200px; display: block; margin: 0 auto 0.5rem auto;" />
 									<small style="color: #666; font-weight: 600;">Scan with Phone Camera</small>
-								</div>
+								</div>-->
 
 								<ul class="actions stacked" style="margin: 0;">
 									<li>
@@ -417,7 +437,7 @@
 							</div>
 						</div>
 						<div class="image">
-							<img src="images/spotlight02.jpg" alt="Share Your Memories" />
+							<img src="images/scan.png" alt="Share Your Memories" />
 						</div>
 					</section>
 					
@@ -483,7 +503,7 @@
 						</div>
 					</section>	
 				
-<!-- Combined RSVP & Menu Selection Section -->
+				<!-- Combined RSVP & Menu Selection Section -->
 					<section class="wrapper style1 align-center" id="rsvp">
 						<div class="inner medium">
 							<h2>RSVP &amp; Menu Selection</h2>
@@ -545,7 +565,65 @@
 					},
 				});
 			</script>
-			
+		
+		<!-- Live Google Sheet Verification Script -->
+		<script>
+			// Replace with your Google Apps Script Web App URL
+			const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyGtaicOrGOTrqDfSoUmTotbBsw4ajzlyAMT9E0O0nZlIA4ooL8sncbbMXfhzbmoU1z/exec";
+
+			document.addEventListener("DOMContentLoaded", function() {
+				if (localStorage.getItem("wedding_authenticated") === "true") {
+					unlockSite();
+				}
+			});
+
+			async function handleGuestLogin(event) {
+				event.preventDefault();
+				const inputField = document.getElementById("guest-identifier");
+				const submitBtn = event.target.querySelector("button[type='submit']");
+				const errorElement = document.getElementById("login-error");
+				
+				const inputVal = inputField.value.trim();
+				if (!inputVal) return;
+
+				// UI loading state
+				errorElement.style.display = "none";
+				submitBtn.innerText = "Verifying...";
+				submitBtn.disabled = true;
+
+				try {
+					const response = await fetch(`${GOOGLE_SCRIPT_URL}?name=${encodeURIComponent(inputVal)}`);
+					const data = await response.json();
+
+					if (data.authorized) {
+						localStorage.setItem("wedding_authenticated", "true");
+						localStorage.setItem("guest_name", inputVal);
+						unlockSite();
+					} else {
+						errorElement.style.display = "block";
+					}
+				} catch (err) {
+					console.error("Verification error:", err);
+					errorElement.innerText = "Connection error. Please try again in a moment.";
+					errorElement.style.display = "block";
+				} finally {
+					submitBtn.innerText = "Access Website";
+					submitBtn.disabled = false;
+				}
+			}
+
+			function unlockSite() {
+				const overlay = document.getElementById("login-overlay");
+				if (overlay) {
+					overlay.style.transition = "opacity 0.4s ease";
+					overlay.style.opacity = "0";
+					setTimeout(() => {
+						overlay.style.display = "none";
+					}, 400);
+				}
+			}
+		</script>
+
 		<!-- Countdown Timer Script -->
 		<script>
     			document.addEventListener("DOMContentLoaded", function() {
