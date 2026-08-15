@@ -346,34 +346,34 @@
 										<strong>Account Holders:</strong> Mr. Khari A. Bryan &amp; Miss Kimberlee J. Lawrence
 									</p>
 									<p style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-										<span><strong>Account Number:</strong> <code id="jm-acc">1694276306</code></span>
-										<button type="button" class="button small copy-btn" onclick="copyText('1694276306', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
-									</p>
+        								<span><strong>Account Number:</strong> <code id="jm-acc" style="filter: blur(5px); user-select: none; transition: filter 0.3s ease;">1694276306</code></span>
+        								<button type="button" class="button small copy-btn" onclick="handleAccountAction('1694276306', 'jm-acc', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Show</button>
+								    </p>
 								</div>
 
 								<!-- Canada Registry -->
 								<div style="margin-bottom: 1.5rem; background: rgba(0,0,0,0.02); padding: 1.25rem; border-radius: 8px;">
 									<h3 style="margin-bottom: 0.5rem;">🇨🇦 Canada — TD Canada Trust</h3>
 									<p style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-										<span><strong>Account Number:</strong> <code>6182974</code></span>
-										<button type="button" class="button small copy-btn" onclick="copyText('6182974', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
-									</p>
-									<p style="margin-bottom: 0;">
-										<strong>Institution No:</strong> 004 &nbsp;|&nbsp; <strong>Transit No:</strong> 11852 &nbsp;|&nbsp; <strong>Designation No:</strong> 1185
-									</p>
+        <span><strong>Account Number:</strong> <code id="ca-acc" style="filter: blur(5px); user-select: none; transition: filter 0.3s ease;">6182974</code></span>
+        <button type="button" class="button small copy-btn" onclick="handleAccountAction('6182974', 'ca-acc', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Show</button>
+    </p>
+    <p style="margin-bottom: 0;">
+        <strong>Institution No:</strong> 004 &nbsp;|&nbsp; <strong>Transit No:</strong> 11852 &nbsp;|&nbsp; <strong>Designation No:</strong> 1185
+    </p>
 								</div>
 
 								<!-- United States Registry -->
 								<div style="margin-bottom: 0; background: rgba(0,0,0,0.02); padding: 1.25rem; border-radius: 8px;">
 									<h3 style="margin-bottom: 0.5rem;">🇺🇸 United States — Bank of America</h3>
 									<p style="margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-										<span><strong>Account Number:</strong> <code>483083291440</code></span>
-										<button type="button" class="button small copy-btn" onclick="copyText('483083291440', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
-									</p>
-									<p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
-										<span><strong>Routing Number:</strong> <code>021000322</code></span>
-										<button type="button" class="button small copy-btn" onclick="copyText('021000322', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Copy</button>
-									</p>
+        <span><strong>Account Number:</strong> <code id="us-acc" style="filter: blur(5px); user-select: none; transition: filter 0.3s ease;">483083291440</code></span>
+        <button type="button" class="button small copy-btn" onclick="handleAccountAction('483083291440', 'us-acc', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Show</button>
+    </p>
+    <p style="margin-bottom: 0; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+        <span><strong>Routing Number:</strong> <code id="us-route" style="filter: blur(5px); user-select: none; transition: filter 0.3s ease;">021000322</code></span>
+        <button type="button" class="button small copy-btn" onclick="handleAccountAction('021000322', 'us-route', this)" style="padding: 0 0.75rem; height: 2rem; line-height: 2rem; font-size: 0.75rem;">Show</button>
+    </p>
 								</div>
 
 							</div>
@@ -568,35 +568,71 @@
 			</div>
 
 		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.scrollex.min.js"></script>
+		<script src="assets/js/jquery.scrolly.min.js"></script>
+		<script src="assets/js/browser.min.js"></script>
+		<script src="assets/js/breakpoints.min.js"></script>
+		<script src="assets/js/util.js"></script>
+		<script src="assets/js/main.js"></script>
 
-			<!-- Fancybox 5 JS -->
-			<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
-			<script>
-				// Initialize Bridal Party Gallery
-				Fancybox.bind('[data-fancybox="bridal-party"]', {
-					loop: true,
-					Hash: false,
-					Thumbs: {
-						autoStart: false,
-					},
-				});
+		<!-- Handle Account Info script -->
+		<script>
+			function handleAccountAction(textToCopy, targetElementId, button) {
+    			const targetElem = document.getElementById(targetElementId);
+    
+    			// STEP 1: If blurred, unblur and change button text to "Copy"
+    			if (targetElem && targetElem.style.filter !== "none") {
+        			targetElem.style.filter = "none";
+        			targetElem.style.userSelect = "all";
+        			button.innerText = "Copy";
+        			return;
+    			}
 
-				// Initialize Photo Album Gallery
-				Fancybox.bind('[data-fancybox="photo-album"]', {
-					loop: true,
-					Hash: false,
-					Thumbs: {
-						autoStart: true,
-					},
-				});
-			</script>
+    			// STEP 2: If visible, copy text to clipboard and trigger auto-rehide
+    			navigator.clipboard.writeText(textToCopy).then(function() {
+        			button.innerText = "Copied!";
+        			button.style.backgroundColor = "#2e7d32"; // Green feedback
+        			button.style.color = "#ffffff";
+        
+        			// After 2 seconds, blur the account number again and reset the button to "Show"
+        			setTimeout(function() {
+            			if (targetElem) {
+                			targetElem.style.filter = "blur(5px)";
+                			targetElem.style.userSelect = "none";
+            			}
+            			button.innerText = "Show";
+            			button.style.backgroundColor = "";
+            			button.style.color = "";
+        			}, 2000);
+    			}).catch(function(err) {
+        			console.error('Could not copy text: ', err);
+    			});
+			}
+		</script>
+
+
+		<!-- Fancybox 5 JS -->
+		<script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+		<script>
+			// Initialize Bridal Party Gallery
+			Fancybox.bind('[data-fancybox="bridal-party"]', {
+				loop: true,
+				Hash: false,
+				Thumbs: {
+					autoStart: false,
+				},
+			});
+
+			// Initialize Photo Album Gallery
+			Fancybox.bind('[data-fancybox="photo-album"]', {
+				loop: true,
+				Hash: false,
+				Thumbs: {
+					autoStart: true,
+				},
+			});
+		</script>
 		
 		<!-- Live Google Sheet Verification Script -->
 		<script>
